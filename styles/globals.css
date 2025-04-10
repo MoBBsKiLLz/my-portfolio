@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Winky+Sans&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #1e1b4b;
+  color: var(--foreground);
+  font-family: 'Winky Sans', sans-serif;
+}
