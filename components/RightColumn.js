@@ -20,13 +20,13 @@ export default function RightColumn() {
       className="ml-auto lg:w-[50%] h-screen overflow-y-scroll relative z-0 scroll-smooth bg-black"
     >
       {/* Fixed hero section */}
-      <div className="sticky top-0 w-full h-screen z-0">
+      <div className="sticky top-0 w-full h-screen z-10">
         {/* Hero section in normal flow */}
         <HeroSection />
 
         {/* Overlay Section - scrolls over the fixed hero */}
         <motion.div
-          className="absolute top-0 left-0 w-full h-screen z-10"
+          className="absolute top-0 left-0 w-full h-screen z-20"
           style={{ y, opacity }}
         >
           <AboutSection />

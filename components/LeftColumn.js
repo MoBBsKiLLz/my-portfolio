@@ -7,9 +7,9 @@ export default function LeftColumn() {
   return (
     <motion.div
       initial={{ width: "100%", opacity: 1 }}
-      animate={{ width: "50%", opacity: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      className="flex flex-col justify-between h-full p-8 fixed left-0 top-0 bottom-0 bg-indigo-1000 z-10"
+      animate={{ width: "50%", opacity: 2 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+      className="flex flex-col justify-between h-full p-8 fixed left-0 top-0 bottom-0 bg-indigo-950 z-10"
     >
       <div className="flex flex-col justify-between h-full p-8 md:w-[50%] fixed left-0 top-0 bottom-0 z-10">
         {/* Top: Menu Button */}
@@ -42,7 +42,7 @@ export default function LeftColumn() {
               I’m Miguel Zepeda, and I turn frontend ideas into pixel-perfect
               reality.
             </p>
-            <button className="mt-4 px-6 py-2 bg-indigo-1000 text-orange-400 border border-orange-400 rounded-full hover:bg-orange-400 hover:text-indigo-1000 transition">
+            <button className="mt-4 px-6 py-2 bg-indigo-950 text-orange-400 border border-orange-400 rounded-full hover:bg-orange-400 hover:text-indigo-1000 transition">
               Let’s work together!
             </button>
           </div>
@@ -99,15 +99,13 @@ export default function LeftColumn() {
                 desc: "Delicately tender with a slice of cheese.",
               },
               {
-                title: "Clients",
+                title: "Skills",
                 desc: "Our great selection from the best in town.",
               },
-              {
-                title: "References",
-                desc: "Hear what our happy customers say.",
+              { 
+                title: "Contact", 
+                desc: "A superb choice to finish the day." 
               },
-              { title: "Projects", desc: "Served on a bed of frontend tech." },
-              { title: "Contact", desc: "A superb choice to finish the day." },
             ].map((item) => (
               <div key={item.title}>
                 <h4 className="text-lg font-semibold">{item.title}</h4>
