@@ -3,8 +3,10 @@ import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import HeroSection from "./sections/HeroSection";
 import AboutSection from "./sections/AboutSection";
+import LeftColumnMobile from "./LeftColumnMobile"
+import StackedSection from "./StackedSection";
 
-export default function RightColumn() {
+export default function RightColumn({ includeMobileIntro = false }) {
   const scrollRef = useRef(null);
   const { scrollYProgress } = useScroll({
     container: scrollRef,
@@ -12,13 +14,17 @@ export default function RightColumn() {
 
   const y = useTransform(scrollYProgress, [0.1, 0.5], ["100%", "0%"]);
   const opacity = useTransform(scrollYProgress, [0.15, 0.4], [0, 1]);
-  
 
   return (
     <div
       ref={scrollRef}
-      className="ml-auto lg:w-[50%] h-screen overflow-y-scroll relative z-0 scroll-smooth bg-black"
+      className="ml-auto w-full min-h-screen h-screen overflow-y-scroll relative z-0 scroll-smooth bg-white"
     >
+      {includeMobileIntro && (
+        <StackedSection sectionId="intro">
+          <LeftColumnMobile />
+        </StackedSection>
+      )}
       {/* Fixed hero section */}
       <div className="sticky top-0 w-full h-screen z-10">
         {/* Hero section in normal flow */}
