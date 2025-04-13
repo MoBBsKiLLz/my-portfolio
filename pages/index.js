@@ -1,7 +1,7 @@
 import LeftColumn from "../components/LeftColumn";
 import RightColumn from "../components/RightColumn";
 import useIsMobile from "../utils/useIsMobile";
-import MenuToggle from "../components/MenuToggle";
+//import MenuToggle from "../components/MenuToggle";
 import { useRef } from "react";
 
 export default function Home() {
