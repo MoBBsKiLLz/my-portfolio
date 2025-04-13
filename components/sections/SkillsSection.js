@@ -54,7 +54,7 @@ const skills = [
     name: "MySQL",
     category: "Database",
     color: "#4479A1",
-    logo: "/images/mysql.png",
+    logo: "/images/mySql.png",
   },
 ];
 
