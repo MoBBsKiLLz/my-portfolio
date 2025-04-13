@@ -5,6 +5,17 @@ import { useState } from "react";
 export default function MenuToggle({ scrollRef }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleScrollTo = (id) => {
+    const section = document.getElementById(id);
+    if (section && scrollRef?.current) {
+      scrollRef.current.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth",
+      });
+    }
+    setMenuOpen(false);
+  };
+
   return (
     <>
       {/* Menu Button */}
@@ -52,16 +63,7 @@ export default function MenuToggle({ scrollRef }) {
           ].map((item) => (
             <div key={item.id}>
               <button
-                onClick={() => {
-                  const section = document.getElementById(item.id);
-                  if (section && scrollRef?.current) {
-                    scrollRef.current.scrollTo({
-                      top: section.offsetTop,
-                      behavior: "smooth",
-                    });
-                  }
-                  setMenuOpen(false);
-                }}
+                onClick={() => handleScrollTo(item.id)}
                 className="text-left w-full"
               >
                 <h4 className="text-lg font-semibold">{item.title}</h4>

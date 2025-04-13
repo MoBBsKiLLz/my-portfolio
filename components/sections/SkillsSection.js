@@ -32,7 +32,7 @@ const skills = [
     color: "#000000",
     logo: "/images/express.png",
   },
-  {
+  /* {
     name: "C#",
     category: "Language",
     color: "#9B4F96",
@@ -43,37 +43,36 @@ const skills = [
     category: "Backend",
     color: "#512BD4",
     logo: "/images/dotnet.png",
-  },
+  }, */
   {
     name: "Prisma",
     category: "Database",
     color: "#0C344B",
     logo: "/images/prisma.png",
   },
-  {
+  /* {
     name: "MySQL",
     category: "Database",
     color: "#4479A1",
     logo: "/images/mySql.png",
-  },
+  }, */
 ];
 
 export default function SkillsSection() {
   return (
     <section
-      id="skills"
       className="flex flex-col items-center justify-center min-h-screen px-4 py-16 bg-gray-100"
     >
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-3xl md:text-4xl font-bold mb-10 text-gray-900"
+        className="text-2xl md:text-4xl font-bold mb-10 text-gray-900"
       >
         Technologies I Work With
       </motion.h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full max-w-5xl">
+      <div className="grid grid-cols-2 grid-cols-3 gap-6 w-full max-w-5xl">
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}

@@ -10,9 +10,7 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
   const fallbackRef = useRef();
   const containerRef = scrollRef || fallbackRef;
 
-  const { scrollYProgress } = useScroll({
-    container: containerRef,
-  });
+  const { scrollYProgress } = useScroll({ container: containerRef });
 
   // Desktop transforms
   const aboutY = useTransform(scrollYProgress, [0.1, 0.4], ["100%", "0%"]);
@@ -28,9 +26,10 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
   return (
     <div
       ref={containerRef}
+      id="main-scroll-container"
       className="ml-auto w-full min-h-screen h-screen overflow-y-scroll relative z-0 scroll-smooth bg-white"
     >
-      {/* 📱 MOBILE STACK */}
+      {/* MOBILE STACK */}
       <div className="sticky top-0 w-full h-screen z-10 md:hidden">
         {/* Page 1 - Intro */}
         {includeMobileIntro && (
@@ -49,6 +48,7 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
 
         {/* Page 3 - About Section */}
         <motion.div
+          id="about"
           className="absolute top-0 left-0 w-full h-screen z-30"
           style={{ y: mobileAboutY }}
         >
@@ -57,6 +57,7 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
 
         {/* Page 4 - Skills Section */}
         <motion.div
+          id="skills"
           className="absolute top-0 left-0 w-full h-screen z-40"
           style={{ y: mobileSkillsY }}
         >
@@ -67,13 +68,14 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
         <div className="h-[400vh]" />
       </div>
 
-      {/* 💻 DESKTOP STACK */}
+      {/* DESKTOP STACK */}
       <div className="sticky top-0 w-full h-screen z-10 md:block hidden">
         {/* Page 1 - Hero Section */}
         <HeroSection />
 
         {/* Page 2 - About Section scrolls over Hero */}
         <motion.div
+          id="about"
           className="absolute top-0 left-0 w-full h-screen z-20"
           style={{ y: aboutY, opacity: aboutOpacity }}
         >
@@ -82,6 +84,7 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
 
         {/* Page 3 - Skills Section scrolls over About */}
         <motion.div
+          id="skills"
           className="absolute top-0 left-0 w-full h-screen z-30"
           style={{ y: skillsY, opacity: skillsOpacity }}
         >
