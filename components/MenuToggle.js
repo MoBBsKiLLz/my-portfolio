@@ -15,6 +15,7 @@ export default function MenuToggle({ scrollRef }) {
       const sectionOffsets = {
         about: window.innerHeight * 2,
         skills: window.innerHeight * 3,
+        contact: window.innerHeight * 4,
       };
   
       const offset = sectionOffsets[id];
@@ -30,7 +31,7 @@ export default function MenuToggle({ scrollRef }) {
       if (section) {
         const offset = section.offsetTop;
         scrollRef.current.scrollTo({
-          top: offset + window.innerHeight * 0.2,
+          top: offset + window.innerHeight * 1,
           behavior: "smooth",
         });
       }
@@ -83,6 +84,11 @@ export default function MenuToggle({ scrollRef }) {
               id: "skills",
               title: "Skills",
               desc: "Our great selection from the best in town.",
+            },
+            {
+              id: "contact",
+              title: "Contact",
+              desc: "Want to work together? Let's chat.",
             },
           ].map((item) => (
             <div key={item.id}>

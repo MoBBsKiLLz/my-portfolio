@@ -5,6 +5,7 @@ import HeroSection from "./sections/HeroSection";
 import AboutSection from "./sections/AboutSection";
 import SkillsSection from "./sections/SkillsSection";
 import LeftColumnMobile from "./LeftColumnMobile";
+import ContactSection from "./sections/ContactSection";
 
 export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
   const fallbackRef = useRef();
@@ -17,17 +18,24 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
   const aboutOpacity = useTransform(scrollYProgress, [0.15, 0.4], [0, 1]);
   const skillsY = useTransform(scrollYProgress, [0.4, 0.7], ["100%", "0%"]);
   const skillsOpacity = useTransform(scrollYProgress, [0.45, 0.7], [0, 1]);
+  const contactY = useTransform(scrollYProgress, [0.7, 1], ["100%", "0%"]);
+  const contactOpacity = useTransform(scrollYProgress, [0.75, 1], [0, 1]);
 
   // Mobile transforms
-  const heroY = useTransform(scrollYProgress, [0.0, 0.33], ["100%", "0%"]);
+  const heroY = useTransform(scrollYProgress, [0.0, 0.25], ["100%", "0%"]);
   const mobileAboutY = useTransform(
     scrollYProgress,
-    [0.33, 0.66],
+    [0.25, 0.5],
     ["100%", "0%"]
   );
   const mobileSkillsY = useTransform(
     scrollYProgress,
-    [0.66, 1],
+    [0.5, 0.75],
+    ["100%", "0%"]
+  );
+  const mobileContactY = useTransform(
+    scrollYProgress,
+    [0.75, 1],
     ["100%", "0%"]
   );
 
@@ -72,8 +80,17 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
           <SkillsSection />
         </motion.div>
 
+        {/* Page 5 - Contact Me Section */}
+        <motion.div
+          id="contact"
+          className="absolute top-0 left-0 w-full h-screen z-50"
+          style={{ y: mobileContactY }}
+        >
+          <ContactSection />
+        </motion.div>
+
         {/* Phantom scroll area for 4 full screens */}
-        <div className="h-[400vh]" />
+        <div className="h-[500vh]" />
       </div>
 
       {/* DESKTOP STACK */}
@@ -99,11 +116,20 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
           <SkillsSection />
         </motion.div>
 
-        {/* Phantom scroll area for 3 full screens */}
+        <motion.div
+          id="contact"
+          className="absolute top-0 left-0 w-full h-screen z-40"
+          style={{ y: contactY, opacity: contactOpacity }}
+        >
+          <ContactSection />
+        </motion.div>
+
+        {/* Phantom scroll area for 4 full screens */}
         <div className="relative z-0">
           <div id="hero-anchor" className="h-screen" />
           <div id="about-anchor" className="h-screen" />
           <div id="skills-anchor" className="h-screen" />
+          <div id="contact-anchor" className="h-screen" />
         </div>
       </div>
     </div>
