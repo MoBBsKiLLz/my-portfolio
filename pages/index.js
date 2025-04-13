@@ -1,7 +1,7 @@
 import LeftColumn from "../components/LeftColumn";
 import RightColumn from "../components/RightColumn";
 import useIsMobile from "../utils/useIsMobile";
-//import MenuToggle from "../components/MenuToggle";
+import MenuToggle from "../components/MenuToggle";
 import { useRef } from "react";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="relative">
       {/* Always-visible menu toggle */}
-      {/* <MenuToggle scrollRef={scrollRef}/> */}
+      <MenuToggle scrollRef={scrollRef}/>
 
       {/* Page Layout */}
       <div className="flex flex-col lg:flex-row h-screen lg:h-full">

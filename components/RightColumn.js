@@ -20,8 +20,16 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
 
   // Mobile transforms
   const heroY = useTransform(scrollYProgress, [0.0, 0.33], ["100%", "0%"]);
-  const mobileAboutY = useTransform(scrollYProgress, [0.33, 0.66], ["100%", "0%"]);
-  const mobileSkillsY = useTransform(scrollYProgress, [0.66, 1], ["100%", "0%"]);
+  const mobileAboutY = useTransform(
+    scrollYProgress,
+    [0.33, 0.66],
+    ["100%", "0%"]
+  );
+  const mobileSkillsY = useTransform(
+    scrollYProgress,
+    [0.66, 1],
+    ["100%", "0%"]
+  );
 
   return (
     <div
@@ -92,7 +100,11 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
         </motion.div>
 
         {/* Phantom scroll area for 3 full screens */}
-        <div className="h-[300vh]" />
+        <div className="relative z-0">
+          <div id="hero-anchor" className="h-screen" />
+          <div id="about-anchor" className="h-screen" />
+          <div id="skills-anchor" className="h-screen" />
+        </div>
       </div>
     </div>
   );

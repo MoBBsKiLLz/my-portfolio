@@ -6,15 +6,39 @@ export default function MenuToggle({ scrollRef }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleScrollTo = (id) => {
-    const section = document.getElementById(id);
-    if (section && scrollRef?.current) {
-      scrollRef.current.scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-      });
+    if (!scrollRef?.current) return;
+  
+    const isMobile = window.innerWidth < 768;
+  
+    if (isMobile) {
+      // scrollRef points to a container with 400vh height
+      const sectionOffsets = {
+        about: window.innerHeight * 2,
+        skills: window.innerHeight * 3,
+      };
+  
+      const offset = sectionOffsets[id];
+  
+      if (offset !== undefined) {
+        scrollRef.current.scrollTo({
+          top: offset,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      const section = document.getElementById(`${id}-anchor`);
+      if (section) {
+        const offset = section.offsetTop;
+        scrollRef.current.scrollTo({
+          top: offset + window.innerHeight * 0.2,
+          behavior: "smooth",
+        });
+      }
     }
+  
     setMenuOpen(false);
   };
+  
 
   return (
     <>
