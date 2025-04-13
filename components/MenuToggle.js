@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-export default function MenuToggle() {
+export default function MenuToggle({ scrollRef }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -40,21 +40,33 @@ export default function MenuToggle() {
         <nav className="space-y-4">
           {[
             {
+              id: "about",
               title: "About",
               desc: "Delicately tender with a slice of cheese.",
             },
             {
+              id: "skills",
               title: "Skills",
               desc: "Our great selection from the best in town.",
             },
-            {
-              title: "Contact",
-              desc: "A superb choice to finish the day.",
-            },
           ].map((item) => (
-            <div key={item.title}>
-              <h4 className="text-lg font-semibold">{item.title}</h4>
-              <p className="text-sm text-gray-600">{item.desc}</p>
+            <div key={item.id}>
+              <button
+                onClick={() => {
+                  const section = document.getElementById(item.id);
+                  if (section && scrollRef?.current) {
+                    scrollRef.current.scrollTo({
+                      top: section.offsetTop,
+                      behavior: "smooth",
+                    });
+                  }
+                  setMenuOpen(false);
+                }}
+                className="text-left w-full"
+              >
+                <h4 className="text-lg font-semibold">{item.title}</h4>
+                <p className="text-sm text-gray-600">{item.desc}</p>
+              </button>
             </div>
           ))}
         </nav>

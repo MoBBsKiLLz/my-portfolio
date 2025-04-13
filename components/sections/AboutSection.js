@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section className="h-screen flex flex-col justify-center items-center bg-white text-zinc-900 px-8">
+    <section id="about" className="h-screen flex flex-col justify-center items-center bg-white text-zinc-900 px-8">
       <h2 className="text-4xl font-bold mb-4">About Me</h2>
       <p className="max-w-2xl text-justify text-lg leading-relaxed">
         Hi, I’m Miguel Zepeda. Originally from Texas, I’ve called Arizona home
