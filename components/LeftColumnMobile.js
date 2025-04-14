@@ -11,7 +11,7 @@ export default function LeftColumnMobile() {
             I’m Miguel Zepeda, and I turn frontend ideas into pixel-perfect
             reality.
           </p>
-          <button
+          {/* <button
             onClick={() => {
               const section = document.getElementById("contact-anchor");
               section?.scrollIntoView({ behavior: "smooth" });
@@ -19,7 +19,7 @@ export default function LeftColumnMobile() {
             className="mt-4 px-2 py-2 bg-indigo-950 text-orange-400 border border-orange-400 rounded-full hover:bg-orange-400 hover:text-indigo-950 transition"
           >
             <p className="text-xs">Let’s work together!</p>
-          </button>
+          </button> */}
         </div>
       </div>
 

@@ -61,7 +61,7 @@ const skills = [
 export default function SkillsSection() {
   return (
     <section
-      className="flex flex-col items-center justify-center min-h-screen px-4 py-16 bg-gray-100"
+      className="flex flex-col items-center min-h-screen px-4 py-16 bg-gray-100"
     >
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
