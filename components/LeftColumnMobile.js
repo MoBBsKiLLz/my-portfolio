@@ -24,7 +24,7 @@ export default function LeftColumnMobile() {
       </div>
 
       {/* Footer */}
-      <footer className="mt-12 space-y-4 relative z-10">
+      <footer className="mb-12 space-y-4 relative z-10">
         <p className="text-sm text-gray-300">
           Find me at{" "}
           <a
