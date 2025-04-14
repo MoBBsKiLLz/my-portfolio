@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="relative">
       {/* Always-visible menu toggle */}
-      <MenuToggle scrollRef={scrollRef}/>
+      {/* <MenuToggle scrollRef={scrollRef}/> */}
 
       {/* Page Layout */}
       <div className="flex flex-col lg:flex-row h-screen lg:h-full">
