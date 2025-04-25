@@ -1,7 +1,7 @@
+import Head from "next/head";
 import LeftColumn from "../components/LeftColumn";
 import RightColumn from "../components/RightColumn";
 import useIsMobile from "../utils/useIsMobile";
-//import MenuToggle from "../components/MenuToggle";
 import { useRef } from "react";
 
 export default function Home() {
@@ -10,8 +10,12 @@ export default function Home() {
 
   return (
     <div className="relative">
-      {/* Always-visible menu toggle */}
-      {/* <MenuToggle scrollRef={scrollRef}/> */}
+      <Head>
+        <title>Freelance frontend user interface developer, Phoenix AZ - Miguel Zepeda</title>
+        <meta name="description" content="Portfolio site of Miguel Zepeda, a freelance frontend UI developer based in Phoenix, AZ." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="images/animal.png" />
+      </Head>
 
       {/* Page Layout */}
       <div className="flex flex-col lg:flex-row h-screen lg:h-full">
