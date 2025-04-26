@@ -58,8 +58,8 @@ export default function LeftColumn() {
             Download{" "}
             <a
               href="/resume.docx"
+              download
               className="underline hover:no-underline"
-              target="_blank"
               rel="noopener noreferrer"
             >
               my resume.
