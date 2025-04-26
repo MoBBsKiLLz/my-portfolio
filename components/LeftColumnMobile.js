@@ -49,9 +49,9 @@ export default function LeftColumnMobile() {
         <p className="text-sm text-gray-300">
           Download{" "}
           <a
-            href="/resume.docx"
+            href="/Resume.docx"
             className="underline hover:no-underline"
-            target="_blank"
+            download
             rel="noopener noreferrer"
           >
             my resume.
