@@ -5,7 +5,7 @@ export default function HeroSection() {
         className="h-screen bg-cover bg-center relative flex items-center justify-center"
         style={{ backgroundImage: "url('/images/heroimage.png')" }}
       >
-        <div className="absolute inset-0 bg-orange-400/60" />
+        <div className="absolute inset-0 bg-[rgba(var(--secondary-color-rgb),0.6)]" />
       </div>
     </section>
   );

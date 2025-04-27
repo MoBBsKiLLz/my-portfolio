@@ -47,7 +47,7 @@ export default function MenuToggle({ scrollRef }) {
       <header className="fixed top-0 left-0 lg:w-[50%] z-50 py-4 px-4 flex justify-start">
         <button
           className={`w-12 h-12 flex items-center justify-center duration-300 ease-in-out border-none rounded ${
-            menuOpen ? "bg-orange-400 border-indigo-950" : "bg-indigo-950"
+            menuOpen ? "bg-[var(--secondary-color)] border-[var(--primary-color)]" : "bg-[var(--primary-color)]"
           }`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
@@ -57,7 +57,7 @@ export default function MenuToggle({ scrollRef }) {
             viewBox="0 0 448 512"
             display="block"
             className={`w-10 h-10 fill-current ${
-              menuOpen ? "text-indigo-950" : "text-orange-400"
+              menuOpen ? "text-[var(--primary-color)]" : "text-[var(--secondary-color)]"
             }`}
           >
             <path d="M0 96C0 78.3 14.3 64 32 64h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zm0 160c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zm448 160c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h384c17.7 0 32 14.3 32 32z" />

@@ -44,7 +44,7 @@ const Contact = () => {
 
   return (
     <section
-      className="max-w-4xl mx-auto px-6 py-16 h-screen text-indigo-950 bg-orange-400"
+      className="max-w-4xl mx-auto px-6 py-16 h-screen text-[var(--primary-color)] bg-[var(--secondary-color)]"
     >
       <section className="mb-12">
         <h2 className="text-4xl font-bold mb-6 text-center">Contact Me</h2>
@@ -60,7 +60,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300  rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full p-3 border border-gray-300  rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[var(--ring-color)]"
             />
           </div>
           <div>
@@ -74,7 +74,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300  rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full p-3 border border-gray-300  rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[var(--ring-color)]"
             />
           </div>
           <div>
@@ -88,7 +88,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[var(--ring-color)]"
             />
           </div>
           <button
@@ -97,7 +97,7 @@ const Contact = () => {
             className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
               isSubmitting
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-indigo-950 text-orange-400 hover:bg-orange-400 hover:text-indigo-950 border border-indigo-950"
+                : "bg-[var(--primary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--primary-color)] border border-[var(--primary-color)]"
             }`}
           >
             {isSubmitting ? "Submitting..." : "Send Message"}
@@ -105,7 +105,7 @@ const Contact = () => {
         </form>
 
         {status && (
-          <p className="mt-6 text-center text-lg text--indigo-950">
+          <p className="mt-6 text-center text-lg text--[var(--primary-color)]">
             {status}
           </p>
         )}

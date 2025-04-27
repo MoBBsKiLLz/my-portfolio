@@ -1,8 +1,8 @@
 export default function LeftColumnMobile() {
   return (
-    <div className="bg-indigo-950 text-orange-400 flex flex-col justify-between min-h-screen min-w-screen px-8 py-8">
+    <div className="bg-[var(--primary-color)] text-[var(--secondary-color)] flex flex-col justify-between min-h-screen min-w-screen px-8 py-8">
       {/* Intro */}
-      <div className="flex-1 flex items-center overflow-y-auto relative z-10 text-orange-400">
+      <div className="flex-1 flex items-center overflow-y-auto relative z-10 text-[var(--secondary-color)]">
         <div className="space-y-6">
           <h1 className="text-5xl font-bold leading-snug">
             Interfaces should feel as good as they look
@@ -16,7 +16,7 @@ export default function LeftColumnMobile() {
               const section = document.getElementById("contact-anchor");
               section?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="mt-4 px-2 py-2 bg-indigo-950 text-orange-400 border border-orange-400 rounded-full hover:bg-orange-400 hover:text-indigo-950 transition"
+            className="mt-4 px-2 py-2 bg-indigo-950 text-[var(--secondary-color)] border border-[var(--secondary-color)] rounded-full hover:bg-[var(--secondary-color)] hover:text-indigo-950 transition"
           >
             <p className="text-xs">Let’s work together!</p>
           </button> */}

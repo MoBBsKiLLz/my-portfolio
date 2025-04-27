@@ -4,8 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Suns */
+  /* --primary-color: rgb(30 27 75);
+  --secondary-color: rgb(251 146 60);
+  --secondary-color-rgb: 251, 146, 60; 
+  --ring-color: rgb(99, 102, 241)*/
+
+  /* Navy */
+  /* --primary-color: rgb(47, 65, 86);
+  --secondary-color: rgb(245, 239, 235);
+  --secondary-color-rgb: 245, 239, 235;
+  --ring-color: rgb(86, 124, 141); */
+
+  /* Caput Mortuum */
+  --primary-color: rgb(99, 32, 36);
+  --secondary-color: rgb(213, 184, 147);
+  --secondary-color-rgb: 213, 184, 147;
+  --ring-color: rgb(111, 77, 56);
+}
+
 body {
-  background: #1e1b4b;
-  color: var(--foreground);
   font-family: 'Winky Sans', sans-serif;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }

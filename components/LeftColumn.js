@@ -6,11 +6,11 @@ export default function LeftColumn() {
       initial={{ width: "100%", opacity: 1 }}
       animate={{ width: "50%", opacity: 2 }}
       transition={{ duration: 1.5, ease: "easeOut" }}
-      className="flex flex-col justify-between h-full p-8 lg:fixed left-0 top-0 bottom-0 bg-indigo-950 z-10"
+      className="flex flex-col justify-between h-full p-8 lg:fixed left-0 top-0 bottom-0 bg-[var(--primary-color)] z-10"
     >
       <div className="flex flex-col justify-between h-full p-8 lg:w-[50%] fixed left-0 top-0 bottom-0 z-10">
         {/* Intro */}
-        <div className="flex-1 flex items-center overflow-y-auto relative z-10 text-orange-400">
+        <div className="flex-1 flex items-center overflow-y-auto relative z-10 text-[var(--secondary-color)]">
           <div className="space-y-6">
             <h1 className="text-5xl font-bold leading-snug">
               Interfaces should feel as good as they look
@@ -24,7 +24,7 @@ export default function LeftColumn() {
                 const section = document.getElementById("contact-anchor");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="mt-4 px-6 py-2 bg-indigo-950 text-orange-400 border border-orange-400 rounded-full hover:bg-orange-400 hover:text-indigo-950 transition"
+              className="mt-4 px-6 py-2 bg-[var(--primary-color)] text-[var(--secondary-color)] border border-[var(--secondary-color)] rounded-full hover:bg-[var(--secondary-color)] hover:text-[var(--primary-color)] transition"
             >
               Let’s work together!
             </button>
