@@ -1,6 +1,7 @@
 import Head from "next/head";
 import LeftColumn from "../components/LeftColumn";
 import RightColumn from "../components/RightColumn";
+import MenuToggle from "../components/MenuToggle";
 import useIsMobile from "../utils/useIsMobile";
 import { useRef } from "react";
 
@@ -31,6 +32,9 @@ export default function Home() {
         <RightColumn includeMobileIntro={isMobile} scrollRef={scrollRef} />
         </div>
       </div>
+
+      {/* Always visible MenuToggle */}
+      <MenuToggle />
     </div>
   );
 }

@@ -2,43 +2,43 @@
 
 import { useState } from "react";
 
-export default function MenuToggle({ scrollRef }) {
+export default function MenuToggle() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleScrollTo = (id) => {
-    if (!scrollRef?.current) return;
+  // const handleScrollTo = (id) => {
+  //   if (!scrollRef?.current) return;
   
-    const isMobile = window.innerWidth < 768;
+  //   const isMobile = window.innerWidth < 768;
   
-    if (isMobile) {
-      // scrollRef points to a container with 400vh height
-      const sectionOffsets = {
-        about: window.innerHeight * 2,
-        skills: window.innerHeight * 3,
-        contact: window.innerHeight * 4,
-      };
+  //   if (isMobile) {
+  //     // scrollRef points to a container with 400vh height
+  //     const sectionOffsets = {
+  //       about: window.innerHeight * 2,
+  //       skills: window.innerHeight * 3,
+  //       contact: window.innerHeight * 4,
+  //     };
   
-      const offset = sectionOffsets[id];
+  //     const offset = sectionOffsets[id];
   
-      if (offset !== undefined) {
-        scrollRef.current.scrollTo({
-          top: offset,
-          behavior: "smooth",
-        });
-      }
-    } else {
-      const section = document.getElementById(`${id}-anchor`);
-      if (section) {
-        const offset = section.offsetTop;
-        scrollRef.current.scrollTo({
-          top: offset + window.innerHeight * 1,
-          behavior: "smooth",
-        });
-      }
-    }
+  //     if (offset !== undefined) {
+  //       scrollRef.current.scrollTo({
+  //         top: offset,
+  //         behavior: "smooth",
+  //       });
+  //     }
+  //   } else {
+  //     const section = document.getElementById(`${id}-anchor`);
+  //     if (section) {
+  //       const offset = section.offsetTop;
+  //       scrollRef.current.scrollTo({
+  //         top: offset + window.innerHeight * 1,
+  //         behavior: "smooth",
+  //       });
+  //     }
+  //   }
   
-    setMenuOpen(false);
-  };
+  //   setMenuOpen(false);
+  // };
   
 
   return (
@@ -93,10 +93,16 @@ export default function MenuToggle({ scrollRef }) {
           ].map((item) => (
             <div key={item.id}>
               <button
-                onClick={() => handleScrollTo(item.id)}
+                onClick={() => {
+                  const section = document.getElementById(`${item.id}-anchor`);
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                  setMenuOpen(false);
+                }}
                 className="text-left w-full"
               >
-                <h4 className="text-lg font-semibold">{item.title}</h4>
+                <h4 className="text-lg font-semibold text-[var(--primary-color)]">{item.title}</h4>
                 <p className="text-sm text-gray-600">{item.desc}</p>
               </button>
             </div>
