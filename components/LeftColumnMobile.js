@@ -11,15 +11,15 @@ export default function LeftColumnMobile() {
             I’m Miguel Zepeda, and I turn frontend ideas into pixel-perfect
             reality.
           </p>
-          {/* <button
+          <button
             onClick={() => {
               const section = document.getElementById("contact-anchor");
               section?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="mt-4 px-2 py-2 bg-indigo-950 text-[var(--secondary-color)] border border-[var(--secondary-color)] rounded-full hover:bg-[var(--secondary-color)] hover:text-indigo-950 transition"
+            className="mt-8 px-6 py-3 bg-[var(--primary-color)] text-[var(--secondary-color)] border border-[var(--secondary-color)] rounded-full hover:bg-[var(--secondary-color)] hover:text-[var(--primary-color)] transition"
           >
-            <p className="text-xs">Let’s work together!</p>
-          </button> */}
+            <p className="text-base">Let’s work together!</p>
+          </button>
         </div>
       </div>
 

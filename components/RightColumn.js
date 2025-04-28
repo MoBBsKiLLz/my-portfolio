@@ -123,15 +123,14 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
         >
           <ContactSection />
         </motion.div>
-
-        {/* Phantom scroll area for 4 full screens */}
-        <div className="relative z-0">
+      </div>
+      {/* Phantom scroll area for 4 full screens */}
+      <div className="relative z-0">
           <div id="hero-anchor" className="h-screen" />
           <div id="about-anchor" className="h-screen" />
           <div id="skills-anchor" className="h-screen" />
           <div id="contact-anchor" className="h-screen" />
         </div>
-      </div>
     </div>
   );
 }
