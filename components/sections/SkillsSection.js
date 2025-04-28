@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 const skills = [
   {
@@ -60,9 +61,7 @@ const skills = [
 
 export default function SkillsSection() {
   return (
-    <section
-      className="flex flex-col items-center min-h-screen px-4 py-16 bg-gray-100"
-    >
+    <section className="flex flex-col items-center min-h-screen px-4 py-16 bg-gray-100">
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +71,7 @@ export default function SkillsSection() {
         Technologies I Work With
       </motion.h2>
 
-      <div className="grid grid-cols-2 grid-cols-3 gap-6 w-full max-w-5xl">
+      <div className="grid grid-cols-3 gap-6 w-full max-w-5xl">
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
@@ -82,9 +81,19 @@ export default function SkillsSection() {
             className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center justify-center hover:scale-105 transition-transform"
           >
             <div className="w-16 h-16 mb-4">
-              <img src={skill.logo} alt={skill.name} className="object-contain w-full h-full" />
+              <div className="relative w-full h-full">
+                <Image
+                  src={skill.logo}
+                  alt={skill.name}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="w-full h-full"
+                />
+              </div>
             </div>
-            <p className="text-sm font-semibold text-[var(--text-color)]">{skill.name}</p>
+            <p className="text-sm font-semibold text-[var(--text-color)]">
+              {skill.name}
+            </p>
             <span className="text-xs text-gray-500">{skill.category}</span>
           </motion.div>
         ))}
