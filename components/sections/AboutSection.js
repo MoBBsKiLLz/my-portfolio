@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section className="h-screen flex flex-col items-center bg-white text-zinc-900 px-8 py-16">
+    <section className="h-screen flex flex-col items-center bg-white text-[var(--text-color)] px-8 py-16">
       <h2 className="text-2xl md:text-4xl font-bold mb-4">About Me</h2>
       <p className="max-w-2xl text-justify text-xs md:text-lg leading-relaxed">
         Hi, I’m Miguel Zepeda. Originally from Texas, I’ve called Arizona home

@@ -24,7 +24,7 @@ export default function LeftColumn() {
                 const section = document.getElementById("contact-anchor");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="mt-4 px-6 py-2 bg-[var(--primary-color)] text-[var(--secondary-color)] border border-[var(--secondary-color)] rounded-full hover:bg-[var(--secondary-color)] hover:text-[var(--primary-color)] transition"
+              className="mt-4 px-6 py-2 bg-[var(--primary-color)] text-[var(--ring-color)] border border-[var(--ring-color)] rounded-full hover:bg-[var(--ring-color)] hover:text-[var(--primary-color)] transition"
             >
               Let’s work together!
             </button>
@@ -33,7 +33,7 @@ export default function LeftColumn() {
 
         {/* Footer */}
         <footer className="mt-12 space-y-4 relative z-10">
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-[var(--tertiary-color)]">
             Find me at{" "}
             <a
               href="https://github.com/MoBBsKiLLz"
@@ -54,7 +54,7 @@ export default function LeftColumn() {
             </a>
             .
           </p>
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-[var(--tertiary-color)]">
             Download{" "}
             <a
               href="/Resume.docx"

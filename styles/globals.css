@@ -18,10 +18,18 @@
   --ring-color: rgb(86, 124, 141); */
 
   /* Caput Mortuum */
-  --primary-color: rgb(99, 32, 36);
+  /* --primary-color: rgb(99, 32, 36);
   --secondary-color: rgb(213, 184, 147);
   --secondary-color-rgb: 213, 184, 147;
-  --ring-color: rgb(111, 77, 56);
+  --ring-color: rgb(111, 77, 56); */
+
+  /* Caput Mortuum */
+  --primary-color: rgb(44, 54, 57);
+  --secondary-color: rgb(220, 215, 201);
+  --secondary-color-rgb: 220, 215, 201;
+  --ring-color: rgb(162, 123, 92);
+  --tertiary-color: rgb(139,126,116);
+  --text-color: rgb(63,78,79);
 }
 
 body {

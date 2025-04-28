@@ -67,7 +67,7 @@ export default function SkillsSection() {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-2xl md:text-4xl font-bold mb-10 text-gray-900"
+        className="text-2xl md:text-4xl font-bold mb-10 text-[var(--text-color)]"
       >
         Technologies I Work With
       </motion.h2>
@@ -84,7 +84,7 @@ export default function SkillsSection() {
             <div className="w-16 h-16 mb-4">
               <img src={skill.logo} alt={skill.name} className="object-contain w-full h-full" />
             </div>
-            <p className="text-sm font-semibold text-gray-800">{skill.name}</p>
+            <p className="text-sm font-semibold text-[var(--text-color)]">{skill.name}</p>
             <span className="text-xs text-gray-500">{skill.category}</span>
           </motion.div>
         ))}
