@@ -15,7 +15,7 @@ export default function Home() {
         <title>Freelance frontend user interface developer, Phoenix AZ - Miguel Zepeda</title>
         <meta name="description" content="Portfolio site of Miguel Zepeda, a freelance frontend UI developer based in Phoenix, AZ." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="images/animal.png" />
+        <link rel="icon" href="images/circlepaw.png" />
       </Head>
 
       {/* Page Layout */}
