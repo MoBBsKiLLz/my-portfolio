@@ -67,7 +67,7 @@ export default function MenuToggle() {
 
       {/* Overlay Menu */}
       <div
-        className={`fixed top-20 left-6 right-6 bg-white lg:w-[30%] shadow-xl rounded-lg p-6 z-40 transition-all duration-300 ease-in-out ${
+        className={`fixed top-20 left-6 right-6 bg-white lg:w-[20%] shadow-xl rounded-lg p-6 z-40 transition-all duration-300 ease-in-out ${
           menuOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-4 pointer-events-none"
@@ -78,18 +78,18 @@ export default function MenuToggle() {
             {
               id: "about",
               title: "About",
-              desc: "Delicately tender with a slice of cheese.",
+              desc: "Learn about my journey from BA to Dev.",
             },
             {
               id: "skills",
               title: "Skills",
-              desc: "Our great selection from the best in town.",
+              desc: "Tools and technologies I use.",
             },
             {
               id: "contact",
               title: "Contact",
-              desc: "Want to work together? Let's chat.",
-            },
+              desc: "Have a project or idea? Let’s chat.",
+            }            
           ].map((item) => (
             <div key={item.id}>
               <button
@@ -100,7 +100,7 @@ export default function MenuToggle() {
                   }
                   setMenuOpen(false);
                 }}
-                className="text-left w-full"
+                className="text-left w-full hover:bg-[var(--secondary-color)] rounded px-2 py-1"
               >
                 <h4 className="text-lg font-semibold text-[var(--primary-color)]">{item.title}</h4>
                 <p className="text-sm text-gray-600">{item.desc}</p>
