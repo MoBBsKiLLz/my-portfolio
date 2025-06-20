@@ -200,7 +200,7 @@ export default function RightColumn({ includeMobileIntro = false, scrollRef }) {
         <div id="hero-anchor" className="h-screen" />
         <div id="about-anchor" className="h-screen" />
         <div id="skills-anchor" className="h-screen" />
-        <div id="projects-anchor" />
+        <div id="projects-anchor" className="h-screen"/>
         <div id="contact-anchor" className="h-screen" />
       </div>
     </div>

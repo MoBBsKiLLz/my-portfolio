@@ -5,41 +5,48 @@ import { useState } from "react";
 export default function MenuToggle() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // const handleScrollTo = (id) => {
-  //   if (!scrollRef?.current) return;
-  
-  //   const isMobile = window.innerWidth < 768;
-  
-  //   if (isMobile) {
-  //     // scrollRef points to a container with 400vh height
-  //     const sectionOffsets = {
-  //       about: window.innerHeight * 2,
-  //       skills: window.innerHeight * 3,
-  //       contact: window.innerHeight * 4,
-  //     };
-  
-  //     const offset = sectionOffsets[id];
-  
-  //     if (offset !== undefined) {
-  //       scrollRef.current.scrollTo({
-  //         top: offset,
-  //         behavior: "smooth",
-  //       });
-  //     }
-  //   } else {
-  //     const section = document.getElementById(`${id}-anchor`);
-  //     if (section) {
-  //       const offset = section.offsetTop;
-  //       scrollRef.current.scrollTo({
-  //         top: offset + window.innerHeight * 1,
-  //         behavior: "smooth",
-  //       });
-  //     }
-  //   }
-  
-  //   setMenuOpen(false);
-  // };
-  
+  const handleScrollTo = (sectionId) => {
+    const container = document.getElementById('main-scroll-container');
+    if (!container) return;
+
+    const viewportHeight = window.innerHeight;
+    
+    // Calculate scroll positions - each section is one viewport height
+    const sectionPositions = {
+      hero: 0,
+      about: viewportHeight * 1,
+      skills: viewportHeight * 2, 
+      projects: viewportHeight * 3,
+      contact: viewportHeight * 4
+    };
+
+    const targetPosition = sectionPositions[sectionId];
+    
+    if (targetPosition !== undefined) {
+      container.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Special handling for projects section - reset internal scroll to top
+      if (sectionId === 'projects') {
+        // Small delay to ensure the main scroll completes first
+        setTimeout(() => {
+          const projectsScrollContainer = container.querySelector('#projects .overflow-y-auto');
+          if (projectsScrollContainer) {
+            projectsScrollContainer.scrollTo({ 
+              top: 0, 
+              behavior: 'smooth' 
+            });
+          }
+        }, 300); // Delay matches typical scroll animation duration
+      }
+    } else {
+      console.warn(`Section "${sectionId}" not found`);
+    }
+    
+    setMenuOpen(false);
+  };
 
   return (
     <>
@@ -86,20 +93,19 @@ export default function MenuToggle() {
               desc: "Tools and technologies I use.",
             },
             {
+              id: "projects",
+              title: "Projects",
+              desc: "Preview some of my work.",
+            },
+            {
               id: "contact",
               title: "Contact",
-              desc: "Have a project or idea? Let’s chat.",
+              desc: "Have a project or idea? Let's chat.",
             }            
           ].map((item) => (
             <div key={item.id}>
               <button
-                onClick={() => {
-                  const section = document.getElementById(`${item.id}-anchor`);
-                  if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
-                  }
-                  setMenuOpen(false);
-                }}
+                onClick={() => handleScrollTo(item.id)}
                 className="text-left w-full hover:bg-[var(--secondary-color)] rounded px-2 py-1"
               >
                 <h4 className="text-lg font-semibold text-[var(--primary-color)]">{item.title}</h4>
