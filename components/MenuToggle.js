@@ -2,50 +2,108 @@
 
 import { useState } from "react";
 
-export default function MenuToggle() {
+export default function MenuToggle({ includeMobileIntro = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleScrollTo = (sectionId) => {
+    // Close menu immediately
+    setMenuOpen(false);
+    
     const container = document.getElementById('main-scroll-container');
-    if (!container) return;
+    if (!container) {
+      console.warn('Scroll container not found');
+      return;
+    }
 
     const viewportHeight = window.innerHeight;
+    const isMobile = window.innerWidth < 768; // md breakpoint
     
-    // Calculate scroll positions - each section is one viewport height
-    const sectionPositions = {
-      hero: 0,
-      about: viewportHeight * 1,
-      skills: viewportHeight * 2, 
-      projects: viewportHeight * 3,
-      contact: viewportHeight * 4
-    };
-
-    const targetPosition = sectionPositions[sectionId];
-    
-    if (targetPosition !== undefined) {
-      container.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-      
-      // Special handling for projects section - reset internal scroll to top
-      if (sectionId === 'projects') {
-        // Small delay to ensure the main scroll completes first
-        setTimeout(() => {
-          const projectsScrollContainer = container.querySelector('#projects .overflow-y-auto');
-          if (projectsScrollContainer) {
-            projectsScrollContainer.scrollTo({ 
-              top: 0, 
-              behavior: 'smooth' 
-            });
+    // Add small delay to ensure menu close animation doesn't interfere
+    setTimeout(() => {
+      if (isMobile) {
+        // Mobile: Use empirically tested positions that actually work
+        // These values are based on testing where each section is optimally visible
+        let mobileSectionPositions;
+        
+        if (includeMobileIntro) {
+          // With intro - adjust these values if you have the intro enabled
+          // You'll need to test and provide the scroll positions for this scenario
+          mobileSectionPositions = {
+            hero: viewportHeight * 0.88,     // Estimated (740/844 ≈ 0.88)
+            about: viewportHeight * 2.54,    // (1440+700)/844 ≈ 2.54
+            skills: viewportHeight * 3.37,   // (2140+700)/844 ≈ 3.37
+            projects: viewportHeight * 4.19, // (2840+700)/844 ≈ 4.19
+            contact: viewportHeight * 5.02   // (3540+700)/844 ≈ 5.02
+          };
+        } else {
+          // Without intro - converted from your exact tested positions (viewport was 844px)
+          mobileSectionPositions = {
+            hero: viewportHeight * 0.88,     // 740/844 ≈ 0.88
+            about: viewportHeight * 1.71,    // 1440/844 ≈ 1.71
+            skills: viewportHeight * 2.54,   // 2140/844 ≈ 2.54
+            projects: viewportHeight * 3.37, // 2840/844 ≈ 3.37
+            contact: viewportHeight * 4.19   // 3540/844 ≈ 4.19
+          };
+        }
+        
+        const targetPosition = mobileSectionPositions[sectionId];
+        
+        if (targetPosition !== undefined) {
+          container.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Special handling for projects section on mobile
+          if (sectionId === 'projects') {
+            setTimeout(() => {
+              const projectsScrollContainer = container.querySelector('#projects .overflow-y-auto');
+              if (projectsScrollContainer) {
+                projectsScrollContainer.scrollTo({ 
+                  top: 0, 
+                  behavior: 'smooth' 
+                });
+              }
+            }, 500);
           }
-        }, 300); // Delay matches typical scroll animation duration
+        } else {
+          console.warn(`Mobile section "${sectionId}" not found`);
+        }
+      } else {
+        // Desktop scroll calculations remain the same
+        const sectionPositions = {
+          hero: 0,
+          about: viewportHeight * 1,
+          skills: viewportHeight * 2, 
+          projects: viewportHeight * 3,
+          contact: viewportHeight * 4
+        };
+
+        const targetPosition = sectionPositions[sectionId];
+        
+        if (targetPosition !== undefined) {
+          container.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Special handling for projects section - reset internal scroll to top
+          if (sectionId === 'projects') {
+            setTimeout(() => {
+              const projectsScrollContainer = container.querySelector('#projects .overflow-y-auto');
+              if (projectsScrollContainer) {
+                projectsScrollContainer.scrollTo({ 
+                  top: 0, 
+                  behavior: 'smooth' 
+                });
+              }
+            }, 500);
+          }
+        } else {
+          console.warn(`Desktop section "${sectionId}" not found`);
+        }
       }
-    } else {
-      console.warn(`Section "${sectionId}" not found`);
-    }
-    
-    setMenuOpen(false);
+    }, 100); // Small delay for menu close
   };
 
   return (
