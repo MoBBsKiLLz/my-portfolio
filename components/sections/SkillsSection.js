@@ -69,7 +69,7 @@ export default function SkillsSection() {
         Technologies I Work With
       </motion.h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-5xl">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-5xl justify-items-center md:justify-items-stretch">
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
@@ -77,7 +77,7 @@ export default function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
           >
-            <Card className="hover:scale-105 transition-transform">
+            <Card className="hover:scale-105 w-32 h-28 md:w-auto md:h-auto transition-transform">
               <CardHeader className="flex items-center justify-center pb-2">
                 <div className="relative w-6 h-6 md:w-16 md:h-16">
                   <Image
@@ -90,7 +90,7 @@ export default function SkillsSection() {
                 </div>
               </CardHeader>
               <CardContent className="flex flex-col items-center space-y-2">
-                <p className="text-sm font-semibold text-[var(--text-color)]">
+                <p className="text-xs md:text-sm font-semibold text-[var(--text-color)]">
                   {skill.name}
                 </p>
                 <Badge variant="secondary">{skill.category}</Badge>
