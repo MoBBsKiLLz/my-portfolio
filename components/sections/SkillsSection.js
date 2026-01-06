@@ -72,6 +72,7 @@ export default function SkillsSection() {
                     src={skill.logo}
                     alt={skill.name}
                     fill
+                    sizes="64px"
                     style={{ objectFit: "contain" }}
                   />
                 </div>

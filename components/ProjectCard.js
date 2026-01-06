@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { getProjectAspectRatio, getProjectImageClasses } from "../utils/projectHelpers";
+import { getProjectImageClasses } from "../utils/projectHelpers";
 
 export default function ProjectCard({ project }) {
   const {
@@ -14,32 +14,38 @@ export default function ProjectCard({ project }) {
     githubUrl
   } = project;
 
-  const aspectRatio = getProjectAspectRatio(type);
   const imageClasses = getProjectImageClasses(type);
+  
+  // Adjusted heights - mobile images are shorter to allow card content to show
+  const imageContainerClass = type === "mobile" 
+    ? "relative w-full h-[250px] sm:h-[300px] md:h-[350px] bg-gradient-to-br from-gray-50 to-gray-100 flex-shrink-0"
+    : "relative w-full h-[200px] sm:h-[250px] md:h-[300px] bg-gradient-to-br from-gray-50 to-gray-100 flex-shrink-0";
 
   return (
-    <Card className="overflow-hidden h-full max-h-[75vh] flex flex-col">
+    <Card className="overflow-hidden flex flex-col md:h-[75vh]">
       {/* Project Image */}
-      <div className={`relative w-full ${aspectRatio} bg-gradient-to-br from-gray-50 to-gray-100 flex-shrink-0`}>
+      <div className={imageContainerClass}>
         <Image
           src={image}
           alt={`${title} screenshot`}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={`${imageClasses.objectFit} ${imageClasses.padding}`}
+          style={{ objectFit: 'contain' }}
           priority
         />
       </div>
 
       {/* Project Content - Scrollable if needed */}
-      <div className="flex-1 overflow-y-auto flex flex-col min-h-0">
-        <CardHeader className="flex-shrink-0 pb-3">
+      <div className="flex-1 flex flex-col min-h-0 md:overflow-y-auto">
+        <CardHeader className="flex-shrink-0 pb-2 sm:pb-3">
           <CardTitle className="text-lg sm:text-xl md:text-2xl leading-tight">{title}</CardTitle>
           <CardDescription className="text-xs sm:text-sm md:text-base line-clamp-2 mt-1">
             {description}
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="flex-1 flex flex-col justify-between space-y-3 pb-4">
+        <CardContent className="flex-1 flex flex-col justify-between space-y-2 sm:space-y-3 pb-3 sm:pb-4">
           {/* Technologies */}
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {technologies.map((tech, index) => (
@@ -53,7 +59,7 @@ export default function ProjectCard({ project }) {
           </div>
 
           {/* Links */}
-          <div className="flex flex-col sm:flex-row gap-2 pt-2">
+          <div className="flex flex-col sm:flex-row gap-2 pt-1 sm:pt-2">
             {liveUrl && (
               <a
                 href={liveUrl}
