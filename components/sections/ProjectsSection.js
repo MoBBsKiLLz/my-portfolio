@@ -1,7 +1,5 @@
-// sections/ProjectsSection.js
 "use client";
 
-import ProjectCard from "../ProjectCard";
 import {
   Carousel,
   CarouselContent,
@@ -9,41 +7,42 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { projects } from "@/data/projects";
+import ProjectCard from "../ProjectCard";
+import { projects } from "../../data/projects";
 
 export default function ProjectsSection() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-white overflow-hidden">
-      <div className="max-w-6xl w-full px-4 md:px-6 py-8 md:py-12">
+    <div className="w-full h-full flex items-center justify-center bg-white overflow-hidden py-4 sm:py-8">
+      <div className="w-full h-full flex flex-col px-4 sm:px-8 md:px-12 lg:px-16">
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-[var(--text-color)] text-3xl md:text-4xl font-semibold mb-4">
+        <div className="text-center mb-4 sm:mb-6 flex-shrink-0">
+          <h1 className="text-[var(--text-color)] text-2xl sm:text-3xl md:text-4xl font-semibold mb-2 sm:mb-3">
             Projects
           </h1>
-          <p className="text-[var(--text-color)] text-base md:text-lg max-w-2xl mx-auto">
-            A showcase of my recent development work, featuring full-stack applications
-            and interactive web experiences.
+          <p className="text-[var(--text-color)] text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
+            A showcase of my recent development work, featuring full-stack
+            applications and interactive web experiences.
           </p>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative px-12">
+        {/* Carousel - Takes remaining height */}
+        <div className="flex-1 flex items-center min-h-0">
           <Carousel
             opts={{
               align: "center",
               loop: true,
             }}
-            className="w-full"
+            className="w-full max-w-5xl mx-auto"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-2 sm:-ml-4">
               {projects.map((project) => (
-                <CarouselItem key={project.id}>
+                <CarouselItem key={project.id} className="pl-2 sm:pl-4">
                   <ProjectCard project={project} />
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-12" />
-            <CarouselNext className="-right-12" />
+            <CarouselPrevious className="hidden lg:flex -left-12" />
+            <CarouselNext className="hidden lg:flex -right-12" />
           </Carousel>
         </div>
       </div>

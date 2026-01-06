@@ -3,11 +3,20 @@ import LeftColumn from "../components/LeftColumn";
 import RightColumn from "../components/RightColumn";
 import MenuToggle from "../components/MenuToggle";
 import useIsMobile from "../utils/useIsMobile";
-import { useRef } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
   const isMobile = useIsMobile();
-  const scrollRef = useRef();
+
+  useEffect(() => {
+    // On mobile, scroll to top (intro section) on initial load
+    if (isMobile) {
+      const mainContainer = document.getElementById("main-scroll-container");
+      if (mainContainer) {
+        mainContainer.scrollTo({ top: 0, behavior: "auto" });
+      }
+    }
+  }, [isMobile]);
 
   return (
     <div className="relative">
@@ -27,9 +36,9 @@ export default function Home() {
           </div>
         )}
 
-        {/* RightColumn always visible */}
+        {/* RightColumn with conditional mobile intro */}
         <div className="w-full lg:w-[50%]">
-        <RightColumn includeMobileIntro={isMobile} scrollRef={scrollRef} />
+          <RightColumn includeMobileIntro={isMobile} />
         </div>
       </div>
 

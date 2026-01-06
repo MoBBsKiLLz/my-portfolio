@@ -21,12 +21,12 @@ export default function LeftColumn() {
             </p>
             <button
               onClick={() => {
-                const section = document.getElementById("contact-anchor");
+                const section = document.getElementById("contact");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
               className="mt-4 px-6 py-2 bg-[var(--primary-color)] text-[var(--ring-color)] border border-[var(--ring-color)] rounded-full hover:bg-[var(--ring-color)] hover:text-[var(--primary-color)] transition"
             >
-              Let’s work together!
+              Let&apos;s work together!
             </button>
           </div>
         </div>

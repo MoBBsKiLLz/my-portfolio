@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Winky+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -33,7 +33,7 @@
 }
 
 body {
-  font-family: 'Winky Sans', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }

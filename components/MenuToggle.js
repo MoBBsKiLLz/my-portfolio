@@ -1,4 +1,3 @@
-// components/MenuToggle.js
 "use client";
 
 import { useState } from "react";
@@ -12,8 +11,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import useIsMobile from "../utils/useIsMobile";
 
-const menuItems = [
+const desktopMenuItems = [
   {
     id: "about",
     title: "About",
@@ -36,28 +36,44 @@ const menuItems = [
   },
 ];
 
+const mobileMenuItems = [
+  {
+    id: "intro",
+    title: "Intro",
+    desc: "Welcome and introduction.",
+  },
+  ...desktopMenuItems,
+];
+
 export default function MenuToggle() {
   const [open, setOpen] = useState(false);
+  const isMobile = useIsMobile();
+  const menuItems = isMobile ? mobileMenuItems : desktopMenuItems;
 
   const handleScrollTo = (sectionId) => {
     setOpen(false); // Close menu
 
-    // Dispatch custom event for menu navigation
-    window.dispatchEvent(
-      new CustomEvent("menuNavigation", { detail: { sectionId } })
-    );
+    // Small delay to allow sheet to close
+    setTimeout(() => {
+      const mainContainer = document.getElementById("main-scroll-container");
+      const targetSection = document.getElementById(sectionId);
 
-    // Get main scroll container and target section
-    const mainContainer = document.getElementById("main-scroll-container");
-    const targetSection = document.getElementById(sectionId);
-
-    if (mainContainer && targetSection) {
-      // Scroll the main container to the section's offset position
-      mainContainer.scrollTo({
-        top: targetSection.offsetTop,
-        behavior: "smooth",
-      });
-    }
+      if (mainContainer && targetSection) {
+        // Get all sections
+        const sections = Array.from(mainContainer.querySelectorAll('section[id]'));
+        const targetIndex = sections.findIndex(section => section.id === sectionId);
+        
+        if (targetIndex !== -1) {
+          // Calculate scroll position: each section is 100vh
+          const scrollPosition = targetIndex * window.innerHeight;
+          
+          mainContainer.scrollTo({
+            top: scrollPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    }, 100);
   };
 
   return (

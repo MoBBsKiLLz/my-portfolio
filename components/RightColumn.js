@@ -1,12 +1,12 @@
-// RightColumn.js
 "use client";
 import HeroSection from "./sections/HeroSection";
 import AboutSection from "./sections/AboutSection";
 import SkillsSection from "./sections/SkillsSection";
 import ContactSection from "./sections/ContactSection";
 import ProjectsSection from "./sections/ProjectsSection";
+import LeftColumnMobile from "./LeftColumnMobile";
 
-export default function RightColumn() {
+export default function RightColumn({ includeMobileIntro }) {
   return (
     <div
       id="main-scroll-container"
@@ -15,6 +15,17 @@ export default function RightColumn() {
         scrollSnapType: "y proximity",
       }}
     >
+      {/* Mobile Intro Section - Only on mobile */}
+      {includeMobileIntro && (
+        <section
+          id="intro"
+          className="min-h-screen h-screen w-full sticky top-0"
+          style={{ scrollSnapAlign: "start", zIndex: 0 }}
+        >
+          <LeftColumnMobile />
+        </section>
+      )}
+
       {/* Hero Section */}
       <section
         id="hero"
