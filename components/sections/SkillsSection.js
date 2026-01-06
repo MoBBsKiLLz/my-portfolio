@@ -14,6 +14,12 @@ const skills = [
     logo: "/images/react.svg",
   },
   {
+    name: "React Native",
+    category: "Frontend",
+    color: "#61DAFB",
+    logo: "/images/react.svg",
+  },
+  {
     name: "Next.js",
     category: "Frontend",
     color: "#000000",
@@ -36,6 +42,12 @@ const skills = [
     category: "Backend",
     color: "#000000",
     logo: "/images/express.png",
+  },
+  {
+    name: "Expo",
+    category: "Backend",
+    color: "#000000",
+    logo: "/images/expo.png",
   },
   {
     name: "Prisma",
@@ -67,7 +79,7 @@ export default function SkillsSection() {
           >
             <Card className="hover:scale-105 transition-transform">
               <CardHeader className="flex items-center justify-center pb-2">
-                <div className="relative w-16 h-16">
+                <div className="relative w-6 h-6 md:w-16 md:h-16">
                   <Image
                     src={skill.logo}
                     alt={skill.name}
