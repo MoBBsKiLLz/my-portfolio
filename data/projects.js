@@ -1,5 +1,3 @@
-import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
-
 // data/projects.js
 export const projects = [
   {
