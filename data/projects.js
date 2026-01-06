@@ -24,7 +24,7 @@ export const projects = [
     title: "Recreational Game Tracking",
     description: "A mobile app for managing recreational sports leagues with automated scheduling, live standings, and tournament brackets. Built with React Native, TypeScript, and SQLite for offline-first data management.",
     image: "/images/the-match/screenshot.png",
-    type: "mobile",
+    type: "desktop",
     technologies: ["React Native", "Expo Router", "gluestack-ui", "TypeScript"],
     githubUrl: "https://github.com/MoBBsKiLLz/TheMatch"
   },
