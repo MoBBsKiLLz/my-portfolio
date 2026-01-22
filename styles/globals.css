@@ -25,9 +25,11 @@
 
   /* Prussian Blue & Cream */
   --primary-color: rgb(0, 48, 73);
+  --primary-color-rgb: 0, 48, 73;
   --secondary-color: rgb(253, 240, 213);
   --secondary-color-rgb: 253, 240, 213;
   --ring-color: rgb(102, 155, 188);
+  --ring-color-rgb: 102, 155, 188;
   --tertiary-color: rgb(193, 167, 142);
   --text-color: rgb(0, 48, 73);
 }
