@@ -49,7 +49,7 @@ export default function LeftColumnMobile() {
         <p className="text-sm text-[var(--tertiary-color)]">
           Download{" "}
           <a
-            href="/Resume.docx"
+            href="/Resume.pdf"
             className="underline hover:no-underline"
             download
             rel="noopener noreferrer"
