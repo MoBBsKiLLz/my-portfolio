@@ -57,7 +57,7 @@ export default function LeftColumn() {
           <p className="text-sm text-[var(--tertiary-color)]">
             Download{" "}
             <a
-              href="/Resume.pdf"
+              href="/Miguel_Zepeda_Modern_Software_Engineer_Resume.pdf"
               download
               className="underline hover:no-underline"
               rel="noopener noreferrer"
